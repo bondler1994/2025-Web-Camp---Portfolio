@@ -1,5 +1,20 @@
+<script setup>
+import { useLocalStorage } from '@vueuse/core'
+import { ref } from 'vue'
+
+const count = useLocalStorage('count', 0)
+const text = useLocalStorage('myText', '')
+</script>
+
 <template>
   <div class="item">
+    <div>
+      <p>{{ count }}</p>
+      <button @click="count++">++</button>
+      <button @click="count = 0">0</button>
+      <textarea v-model="text" name="" id=""></textarea>
+      <p>{{ text }}</p>
+    </div>
     <i>
       <slot name="icon"></slot>
     </i>

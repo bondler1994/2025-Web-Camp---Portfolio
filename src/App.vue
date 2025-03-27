@@ -1,10 +1,19 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import { useCounterStore } from './stores/counter.js'
+
+const { addCount } = useCounterStore()
+const clickAdd = () => {
+  addCount()
+}
 </script>
 
 <template>
   <header>
+    <h1>{{ addCount }}</h1>
+    <button @click="clickAdd">click</button>
+
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">

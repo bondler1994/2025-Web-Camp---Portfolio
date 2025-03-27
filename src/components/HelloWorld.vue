@@ -1,14 +1,19 @@
 <script setup>
+import { useCounterStore } from '@/stores/counter.js'
+
 defineProps({
   msg: {
     type: String,
     required: true,
   },
 })
+
+const store = useCounterStore()
 </script>
 
 <template>
   <div class="greetings">
+    <button @click="store.fetchApiData">fetch</button>
     <h1 class="green">{{ msg }}</h1>
     <h3>
       You’ve successfully created a project with
